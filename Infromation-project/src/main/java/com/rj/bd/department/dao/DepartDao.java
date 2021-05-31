@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface DepartDao extends BaseMapper<Department> {
-    
+
 }
