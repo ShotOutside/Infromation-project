@@ -1,6 +1,8 @@
 package com.rj.bd.student.service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.rj.bd.student.dao.StudentDao;
 import com.rj.bd.student.entity.Student;
@@ -25,14 +27,26 @@ public StudentDao userDao;
 		userDao.UpdateUser(user);
 	}
 
-	@Transactional
-	public void InsertUser(Student user) {
-		userDao.InsertUser(user);
-	}
+
 
 	@Transactional
-	public void DeleteUser(String id) {
-		userDao.DeleteUser(id);
+	public void DeleteUser(String uid) {
+		userDao.DeleteUser(uid);
+	}
+
+	@Override
+	public String queryByNametoId( String cname) {
+		return userDao.queryByNametoId(cname);
+	}
+
+	@Override
+	public String queryByNametodId(String departname) {
+		return userDao.queryByNametodId(departname);
+	}
+
+	@Override
+	public void save(String uid, String uname, String sex, Date birth, String unumber, String password, String cid, String school, String departid) {
+		 userDao.save(uid,uname,sex,birth,unumber,password,cid,school,departid);
 	}
 
 }

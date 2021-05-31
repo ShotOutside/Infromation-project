@@ -1,12 +1,11 @@
 package com.rj.bd.student.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.rj.bd.student.entity.Student;
 import com.rj.bd.student.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,27 +13,40 @@ import org.springframework.web.bind.annotation.RestController;
  * student模块的c层
  */
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/student")
 public class StudentController {
 
 	@Autowired
 	public IStudentService userService;
 
+	/**
+	 * @desc   多表联查
+	 * @return
+	 */
 	@RequestMapping("/queryAll")
 	public List<Student> query() {
-
+		System.out.println("query");
 		return userService.queryAll();
 	}
 
-	@RequestMapping("/userAdd")
-	public Map<String, Object> add() {
-		Map<String, Object> map = new HashMap<String,Object>();
-		System.out.println("------>addPerson");
-		Student user = new Student();
-		
+	/**
+	 * @desc   添加学生信息
+	 * @return
+	 */
+	@RequestMapping("/add")
+	public Map<String, Object> add(String uid, String uname, String sex, Date birth,String unumber,String password,String cname,
+	String school,String departname) {
+		System.out.println("Add");
+		uid= UUID.randomUUID().toString();
+		String cid=userService.queryByNametoId(cname);
+		System.out.println(cid);
+		birth=new Date();
+		System.out.println(birth);
+		String departid=userService.queryByNametodId(departname);
+		userService.save(uid,uname,sex,birth,unumber,password,cid,school,departid);
 
-		userService.InsertUser(user);
-        return map;
+        return null;
 	}
 
 	
@@ -46,16 +58,18 @@ public class StudentController {
 		userService.UpdateUser(user);
         return "";
 	}
-	
-	
-	
-	@RequestMapping("/userDelete")
-	public String delete() {
 
-		 int id=3;
 
-		userService.DeleteUser(id+"");
-        return "";
+	/**
+	 * @desc  根据id删除
+	 * @return
+	 */
+	@RequestMapping("/delete")
+	public String delete(String uid) {
+		System.out.println("delete");
+
+		userService.DeleteUser(uid);
+        return "ok";
 	}
 	
 	
