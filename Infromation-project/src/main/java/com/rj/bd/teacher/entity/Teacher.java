@@ -1,4 +1,4 @@
-﻿package com.rj.bd.teacher.entity;
+package com.rj.bd.teacher.entity;
 /**
  * @desc   teacher表的实体类
  */

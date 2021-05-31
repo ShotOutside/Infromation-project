@@ -1,4 +1,4 @@
-﻿package com.rj.bd.teacher.controller;
+package com.rj.bd.teacher.controller;
 /**
  * @desc   teacher表的c层
  */

@@ -1,4 +1,4 @@
-﻿package com.rj.bd.teacher.service;
+package com.rj.bd.teacher.service;
 /**
  * @desc   teacher表m层接口实现类
  */

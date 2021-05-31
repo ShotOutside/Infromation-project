@@ -1,4 +1,4 @@
-﻿package com.rj.bd.teacher.dao;
+package com.rj.bd.teacher.dao;
 /**
  * @desc   teacher表的持久层
  */
