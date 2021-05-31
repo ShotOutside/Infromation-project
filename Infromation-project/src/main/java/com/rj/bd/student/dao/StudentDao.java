@@ -9,7 +9,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-
+/**
+ * student模块的持久层
+ */
 @Mapper
 public interface StudentDao {
 

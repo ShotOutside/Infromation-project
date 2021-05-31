@@ -1,23 +1,32 @@
 package com.rj.bd.student.entity;
 
+import com.rj.bd.classes.entity.Classes;
+import com.rj.bd.department.entity.Department;
+import lombok.Data;
+
+/**
+ * Student模块的实体类
+ */
+@Data
 public class Student {
-private Integer id;
-private String name;
-public Integer getId() {
-	return id;
-}
-public void setId(Integer id) {
-	this.id = id;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-@Override
-public String toString() {
-	return "User [id=" + id + ", name=" + name + "]";
-}
+	public String uid;
+	public String uname;
+	public String sex;
+	public String birth;
+	public String unumber;
+	public String password;
+	public String school;
+	public String token;
+	public String departid;
+	public String cid;
+
+
+
+
+
+
+
+
+
 
 }
