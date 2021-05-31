@@ -24,7 +24,7 @@ public class UserController {
 
 	@RequestMapping("/userAdd")
 	public String add() {
-
+		System.out.println();
 		User user = new User();
 		
 		user.setName("李莫愁");
