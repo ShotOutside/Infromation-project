@@ -4,13 +4,14 @@ package com.rj.bd.teacher.dao;
  */
 
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.rj.bd.teacher.entity.Teacher;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
-public interface TeaDao {
+public interface TeaDao extends BaseMapper<Teacher> {
     @Select("  select * from teacher  ")
     List<Teacher> queryTea();
 
