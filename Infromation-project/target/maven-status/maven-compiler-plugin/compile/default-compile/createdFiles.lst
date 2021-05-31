@@ -1,6 +1,1 @@
-com\rj\bd\infromation\controller\UserController.class
-com\rj\bd\infromation\service\IUserService.class
-com\rj\bd\infromation\dao\UserDao.class
 com\rj\bd\App.class
-com\rj\bd\infromation\service\UserServiceImpl.class
-com\rj\bd\infromation\entity\User.class
