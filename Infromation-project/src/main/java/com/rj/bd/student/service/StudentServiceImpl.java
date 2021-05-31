@@ -1,32 +1,32 @@
-package com.rj.bd.infromation.service;
+package com.rj.bd.student.service;
 
 import java.util.List;
 
-import com.rj.bd.infromation.dao.UserDao;
-import com.rj.bd.infromation.entity.User;
+import com.rj.bd.student.dao.StudentDao;
+import com.rj.bd.student.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-public class UserServiceImpl  implements  IUserService{
+public class StudentServiceImpl implements IStudentService {
 
 @Autowired
-public UserDao userDao;
+public StudentDao userDao;
 	
 	
-	public List<User> queryAll() {
+	public List<Student> queryAll() {
 		return userDao.queryAll();
 	}
 
 	@Transactional
-	public void UpdateUser(User user) {
+	public void UpdateUser(Student user) {
 		userDao.UpdateUser(user);
 	}
 
 	@Transactional
-	public void InsertUser(User user) {
+	public void InsertUser(Student user) {
 		userDao.InsertUser(user);
 	}
 

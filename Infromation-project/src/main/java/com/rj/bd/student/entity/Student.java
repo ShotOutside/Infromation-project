@@ -1,6 +1,6 @@
-package com.rj.bd.infromation.entity;
+package com.rj.bd.student.entity;
 
-public class User {
+public class Student {
 private Integer id;
 private String name;
 public Integer getId() {

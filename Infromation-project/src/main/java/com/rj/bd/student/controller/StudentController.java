@@ -1,23 +1,22 @@
-package com.rj.bd.infromation.controller;
+package com.rj.bd.student.controller;
 
 import java.util.List;
 
-import com.rj.bd.infromation.entity.User;
-import com.rj.bd.infromation.service.IUserService;
+import com.rj.bd.student.entity.Student;
+import com.rj.bd.student.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class UserController {
+public class StudentController {
 
 	@Autowired
-	public IUserService userService;
+	public IStudentService userService;
 
 	@RequestMapping("/userQuery")
-	public List<User> query() {
+	public List<Student> query() {
 
 		return userService.queryAll();
 	}
@@ -25,7 +24,7 @@ public class UserController {
 	@RequestMapping("/userAdd")
 	public String add() {
 		System.out.println();
-		User user = new User();
+		Student user = new Student();
 		
 		user.setName("李莫愁");
 
@@ -37,7 +36,7 @@ public class UserController {
 	@RequestMapping("/userUpdate")
 	public String update() {
 
-		User user = new User();
+		Student user = new Student();
 		user.setId(3);
 		user.setName("赤练仙子");
 
