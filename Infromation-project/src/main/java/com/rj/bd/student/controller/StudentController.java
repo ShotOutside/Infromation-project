@@ -58,7 +58,7 @@ public class StudentController {
 	 */
 	@RequestMapping("/update")
 	public String update(String uid,String uname,String unumber,String sex,String birth,String password) {
-
+		System.out.println("update");
 		userService.update(uid,uname,unumber,sex,birth,password);
         return "";
 	}

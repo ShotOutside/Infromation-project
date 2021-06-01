@@ -55,7 +55,7 @@ public interface StudentDao extends BaseMapper<Student> {
 	 * @desc  修改学生信息
 	 */
 	@Update("update student set uname=#{uname},unumber=#{unumber},sex=#{sex},birth=#{birth},password=#{password} where uid=#{uid}")
-	void update(@Param("uname")String uname,@Param("unumber")String unumber,@Param("sex")String sex,@Param("birth")String birth,@Param("password")String password,@Param("uid")String uid);
+	void update(@Param("uid")String uid,@Param("uname")String uname,@Param("password")String password,@Param("birth")String birth,@Param("sex")String sex,@Param("unumber")String unumber);
 
 
 	/**
