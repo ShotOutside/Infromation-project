@@ -18,5 +18,5 @@ public class Teacher {
     public String password;
     public String school;
     public String token;
-    public Date birth;
+    public String birth;
 }

@@ -65,7 +65,7 @@ public class TeaController {
      */
     @CrossOrigin
     @RequestMapping("/updateOne")
-    public Map<String, Object> update(String tid, String tname, String sex, Date birth,String tnumber,String password,String school){
+    public Map<String, Object> update(String tid, String tname, String sex, String birth,String tnumber,String password,String school){
         Teacher teacher = new Teacher();
         teacher.setTid(tid);
         teacher.setTname(tname);
@@ -89,7 +89,7 @@ public class TeaController {
      */
     @CrossOrigin
     @RequestMapping("/addOne")
-    public Map<String, Object> add(String tid, String tname, String sex, Date birth,String tnumber,String password,String school){
+    public Map<String, Object> add(String tid, String tname, String sex, String birth,String tnumber,String password,String school){
         Map<String, Object> map = new HashMap<String,Object>();
         System.out.println("teacher-->addOne");
         Teacher teacher = new Teacher();
