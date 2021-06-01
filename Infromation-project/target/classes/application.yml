@@ -17,3 +17,12 @@ mybatis-plus:
   configuration:
     # 关闭驼峰命名规则
     map-underscore-to-camel-case: false
+
+
+mail:
+  host: smtp.qq.com
+  username: 1758855483@qq.com
+  password: ysccvlzzjtwzbjgg
+  properties.mail.smtp.auth: true
+  properties.mail.smtp.starttls.enable: true
+  properties.mail.smtp.starttls.required: true
