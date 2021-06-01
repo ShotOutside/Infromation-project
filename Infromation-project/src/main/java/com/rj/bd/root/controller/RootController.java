@@ -29,16 +29,16 @@ public class RootController {
     @RequestMapping("/fa")
     public void fa(String code,String yAccount){
         code= UUID.randomUUID().toString().substring(0,5);
-        email.email("1758855483@qq.com",code);
+        email.email("2441708149@qq.com",code);
 
     }
 
     @RequestMapping("login")
-    public Map<String, Object> login(String code,String rname){
+    public Map<String, Object> login(String code,String rname,String youxiang){
         Jedis jedis = RedisUtil.getRedisConnection();
 
         code= UUID.randomUUID().toString().substring(0,5);
-        email.email("1758855483@qq.com",code);
+        email.email(youxiang,code);
         jedis.set(rname,code);
         jedis.expire(rname,120);
         return rootService.login(code,rname);
