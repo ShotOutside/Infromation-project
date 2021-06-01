@@ -1,6 +1,5 @@
 com\rj\bd\department\dao\DepartDao.class
 com\rj\bd\classes\service\ClassesImpl.class
-com\rj\bd\utils\Email.class
 com\rj\bd\root\entity\Root.class
 com\rj\bd\student\controller\StudentController.class
 com\rj\bd\department\service\DepartImpl.class

@@ -9,7 +9,7 @@ import com.rj.bd.student.entity.Student;
 
 public interface IStudentService {
 
-	List<Map<String, Object>> queryAll();
+	List<Map<String, Object>> queryAll(int page,int size);
 	public void DeleteUser(String uid);
 
 	String queryByNametoId(String cname);
@@ -23,4 +23,6 @@ public interface IStudentService {
 	List<Map<String, Object>> queryByName(String uname, String unumber);
 
 	List<Map<String, Object>> queryOne(String uid);
+
+	Object getLosCount();
 }

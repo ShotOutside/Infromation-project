@@ -18,8 +18,8 @@ public class StudentServiceImpl implements IStudentService {
 public StudentDao userDao;
 	
 	
-	public List<Map<String, Object>> queryAll() {
-		return userDao.queryAll();
+	public List<Map<String, Object>> queryAll(int page,int size) {
+		return userDao.queryAll((page-1)*size, size);
 	}
 
 	@Transactional
@@ -62,6 +62,11 @@ public StudentDao userDao;
 	@Override
 	public List<Map<String, Object>> queryOne(String uid) {
 		return userDao.queryById(uid);
+	}
+
+	@Override
+	public Object getLosCount() {
+		return userDao.selectCount(null);
 	}
 
 

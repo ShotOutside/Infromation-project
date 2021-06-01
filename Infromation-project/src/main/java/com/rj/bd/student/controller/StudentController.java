@@ -8,6 +8,7 @@ import com.rj.bd.teacher.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,10 +27,10 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping("/queryAll")
-	public List<Map<String, Object>> query() {
+	public List<Map<String, Object>> query(int page,int size) {
 		System.out.println("query");
 
-		List<Map<String, Object>> list = userService.queryAll();
+		List<Map<String, Object>> list = userService.queryAll(page,size);
 
 
 		return list;
@@ -117,5 +118,20 @@ public class StudentController {
 
 	}
 
+	/**
+	 * 分页
+	 * @return
+	 */
+	@RequestMapping("/getLogsCount")
+	public Map<String,Object> getLogsCount(){
+		Map<String, Object> map = new HashMap<String, Object>();
+
+
+		map.put("msc",200);
+		map.put("num", userService.getLosCount());
+
+		return map;
+
+	}
 
 }
