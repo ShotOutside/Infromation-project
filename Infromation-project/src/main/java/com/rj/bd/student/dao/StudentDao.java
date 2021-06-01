@@ -47,7 +47,7 @@ public interface StudentDao extends BaseMapper<Student> {
 	 * @desc   添加学生
 	 */
 	@Insert("insert into student (uid,uname,sex,birth,unumber,password,cid,school,departid) values(#{uid},#{uname},#{sex},#{birth},#{unumber},#{password},#{cid},#{school},#{departid})")
-	public void save(@Param("uid") String uid, @Param("uname") String uname, @Param("sex") String sex, @Param("birth")Date birth, @Param("unumber") String unumber,
+	public void save(@Param("uid") String uid, @Param("uname") String uname, @Param("sex") String sex, @Param("birth")String birth, @Param("unumber") String unumber,
 					@Param("password") String password, @Param("cid") String cid, @Param("school") String school, @Param("departid") String departid);
 
 

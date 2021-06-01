@@ -45,7 +45,7 @@ public StudentDao userDao;
 	}
 
 	@Override
-	public void save(String uid, String uname, String sex, Date birth, String unumber, String password, String cid, String school, String departid) {
+	public void save(String uid, String uname, String sex, String birth, String unumber, String password, String cid, String school, String departid) {
 		 userDao.save(uid,uname,sex,birth,unumber,password,cid,school,departid);
 	}
 

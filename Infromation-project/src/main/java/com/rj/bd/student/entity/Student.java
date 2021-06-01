@@ -14,7 +14,7 @@ public class Student {
 	public String uid;
 	public String uname;
 	public String sex;
-	public Date birth;
+	public String birth;
 	public String unumber;
 	public String password;
 	public String school;

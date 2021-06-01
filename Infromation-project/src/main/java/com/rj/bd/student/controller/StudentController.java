@@ -39,14 +39,12 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping("/add")
-	public Map<String, Object> add(String uid, String uname, String sex, Date birth,String unumber,String password,String cname,
+	public Map<String, Object> add(String uid, String uname, String sex, String birth,String unumber,String password,String cname,
 	String school,String departname) {
 		System.out.println("Add");
 		uid= UUID.randomUUID().toString();
 		String cid=userService.queryByNametoId(cname);
 		System.out.println(cid);
-		birth=new Date();
-		System.out.println(birth);
 		String departid=userService.queryByNametodId(departname);
 		userService.save(uid,uname,sex,birth,unumber,password,cid,school,departid);
 
