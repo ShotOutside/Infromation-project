@@ -96,9 +96,9 @@ public class StudentController {
 	 * @desc  模糊查询
 	 */
 	@RequestMapping("/querybyname")
-	public List<Map<String, Object>> queryByName(String uname){
+	public List<Map<String, Object>> queryByName(String uname,String unumber){
 		System.out.println("queryByName");
-		List<Map<String, Object>> list = userService.queryByName(uname);
+		List<Map<String, Object>> list = userService.queryByName(uname,unumber);
 
 		return list;
 

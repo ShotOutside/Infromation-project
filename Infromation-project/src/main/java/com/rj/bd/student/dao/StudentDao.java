@@ -62,8 +62,8 @@ public interface StudentDao extends BaseMapper<Student> {
 	/**
 	 * @desc  模糊查询
 	 */
-	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid AND uname like CONCAT('%',#{uname},'%')")
-	public List<Map<String, Object>> queryByName(@Param("uname")String uname);
+	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid AND uname like CONCAT('%',#{uname},'%') AND unumber like CONCAT('%',#{unumber},'%')")
+	public List<Map<String, Object>> queryByName(@Param("uname")String uname,@Param("unumber")String unumber);
 
 
 

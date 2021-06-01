@@ -55,8 +55,8 @@ public StudentDao userDao;
 	}
 
 	@Override
-	public List<Map<String, Object>> queryByName(String uname) {
-		return userDao.queryByName(uname);
+	public List<Map<String, Object>> queryByName(String uname,String unumber) {
+		return userDao.queryByName(uname,unumber);
 	}
 
 	@Override
