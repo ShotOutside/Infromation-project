@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.rj.bd.student.entity.Student;
 import org.apache.ibatis.annotations.*;
 
@@ -12,7 +11,7 @@ import org.apache.ibatis.annotations.*;
  * student模块的持久层
  */
 @Mapper
-public interface StudentDao extends BaseMapper<Student> {
+public interface StudentDao {
 
 	//多表联查
 	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid ")

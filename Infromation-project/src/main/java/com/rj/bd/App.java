@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-@MapperScan("com.rj.bd.*.dao")
 public class App
 {
     public static void main( String[] args )

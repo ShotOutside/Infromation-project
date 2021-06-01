@@ -1,6 +1,5 @@
 package com.rj.bd.department.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.rj.bd.department.entity.Department;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,6 +10,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 @Mapper
-public interface DepartDao extends BaseMapper<Department> {
+public interface DepartDao{
 
 }
