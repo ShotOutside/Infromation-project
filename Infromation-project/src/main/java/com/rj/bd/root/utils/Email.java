@@ -13,14 +13,8 @@ import org.springframework.stereotype.Component;
 public class Email {
 
 
-    @Bean
-    public JavaMailSenderImpl JavaMailSender(){
-        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.qq.com");
-        mailSender.setUsername("1758855483@qq.com");
-        mailSender.setPassword("ysccvlzzjtwzbjgg");
-        return  mailSender;
-    }
+    @Autowired
+    public MailSender mailSender;
 
 
 
@@ -32,7 +26,14 @@ public class Email {
         simpleMailMessage.setTo(addressee);
         simpleMailMessage.setSubject("验证码");
         simpleMailMessage.setText("验证码为:"+code);
+        try {
 
+            mailSender.send(simpleMailMessage);
+            System.out.println("发送成功");
+        } catch (
+                MailException e) {
+            e.printStackTrace();
+            System.out.println("发送失败");
+        }
     }
-
 }
