@@ -61,10 +61,16 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public Map<String, Object> update(String uid,String uname,String unumber,String sex,String birth,String password) {
+	public Map<String, Object> update(String uid,String uname,String unumber,String sex,String birth,String password,String cname,
+									  String school,String departname) {
 		Map<String, Object> map = new HashMap<String,Object>();
 		System.out.println("update");
-		userService.update(uid,uname,unumber,sex,birth,password);
+
+		String cid=userService.queryByNametoId(cname);
+		System.out.println(cid);
+		String departid=userService.queryByNametodId(departname);
+
+		userService.update(uid,uname,unumber,sex,birth,password,cname,school,departname);
 		map.put("msc", 200);
 		map.put("text", "修改成功");
         return map;
