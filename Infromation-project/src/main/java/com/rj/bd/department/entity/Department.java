@@ -2,6 +2,7 @@ package com.rj.bd.department.entity;
 
 import lombok.Data;
 
+
 /**
  * @author ShiJie
  * @desc
@@ -9,6 +10,10 @@ import lombok.Data;
  */
 @Data
 public class Department {
+
+
     public String departid;
     public String departname;
+
+
 }
