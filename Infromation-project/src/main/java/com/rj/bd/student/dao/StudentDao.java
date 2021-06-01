@@ -16,7 +16,7 @@ public interface StudentDao extends BaseMapper<Student> {
 
 	//多表联查
 	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid ")
-	public List<Student> queryAll();
+	public List<Map<String, Object>> queryAll();
 	
 	@Update("update user set name=#{name} where id=#{id}")
 	public void UpdateUser(Student user);
@@ -49,8 +49,12 @@ public interface StudentDao extends BaseMapper<Student> {
 	@Insert("insert into student (uid,uname,sex,birth,unumber,password,cid,school,departid) values(#{uid},#{uname},#{sex},#{birth},#{unumber},#{password},#{cid},#{school},#{departid})")
 	public void save(@Param("uid") String uid, @Param("uname") String uname, @Param("sex") String sex, @Param("birth")Date birth, @Param("unumber") String unumber,
 					@Param("password") String password, @Param("cid") String cid, @Param("school") String school, @Param("departid") String departid);
-	
-	
-	
-	
+
+
+	/**
+	 * @desc  修改学生信息
+	 */
+	//@Update("update student set uname=#{uname},uname=#{uname},uname=#{uname},")
+
+
 }

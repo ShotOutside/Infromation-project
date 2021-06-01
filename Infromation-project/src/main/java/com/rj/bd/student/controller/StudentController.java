@@ -25,9 +25,13 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping("/queryAll")
-	public List<Student> query() {
+	public List<Map<String, Object>> query() {
 		System.out.println("query");
-		return userService.queryAll();
+
+		List<Map<String, Object>> list = userService.queryAll();
+
+		return list;
+
 	}
 
 	/**
@@ -49,13 +53,14 @@ public class StudentController {
         return null;
 	}
 
-	
-	@RequestMapping("/userUpdate")
-	public String update() {
+	/**
+	 * @desc   修改
+	 * @return
+	 */
+	@RequestMapping("/update")
+	public String update(String uid,String uname,String unumber,String sex,Date birth,String password) {
 
-		Student user = new Student();
-
-		userService.UpdateUser(user);
+		userService.update(uid,uname,unumber,sex,birth,password);
         return "";
 	}
 

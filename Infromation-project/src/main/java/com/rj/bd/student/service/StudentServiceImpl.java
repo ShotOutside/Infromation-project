@@ -18,8 +18,8 @@ public class StudentServiceImpl implements IStudentService {
 public StudentDao userDao;
 	
 	
-	public List<Student> queryAll() {
-		return userDao.selectList(null);
+	public List<Map<String, Object>> queryAll() {
+		return userDao.queryAll();
 	}
 
 	@Transactional
@@ -47,6 +47,11 @@ public StudentDao userDao;
 	@Override
 	public void save(String uid, String uname, String sex, Date birth, String unumber, String password, String cid, String school, String departid) {
 		 userDao.save(uid,uname,sex,birth,unumber,password,cid,school,departid);
+	}
+
+	@Override
+	public void update(String uid, String uname, String unumber, String sex, Date birth, String password) {
+
 	}
 
 }
