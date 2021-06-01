@@ -50,7 +50,7 @@ public StudentDao userDao;
 	}
 
 	@Override
-	public void update(String uid, String uname, String unumber, String sex, Date birth, String password) {
+	public void update(String uid, String uname, String unumber, String sex, String birth, String password) {
 			userDao.update(uid,uname,unumber,birth,sex,password);
 	}
 

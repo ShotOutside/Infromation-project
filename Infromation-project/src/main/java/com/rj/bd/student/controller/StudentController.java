@@ -30,6 +30,7 @@ public class StudentController {
 
 		List<Map<String, Object>> list = userService.queryAll();
 
+
 		return list;
 
 	}
@@ -56,7 +57,7 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public String update(String uid,String uname,String unumber,String sex,Date birth,String password) {
+	public String update(String uid,String uname,String unumber,String sex,String birth,String password) {
 
 		userService.update(uid,uname,unumber,sex,birth,password);
         return "";
