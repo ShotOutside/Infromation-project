@@ -59,4 +59,10 @@ public StudentDao userDao;
 		return userDao.queryByName(uname);
 	}
 
+	@Override
+	public List<Map<String, Object>> queryOne(String uid) {
+		return userDao.queryById(uid);
+	}
+
+
 }

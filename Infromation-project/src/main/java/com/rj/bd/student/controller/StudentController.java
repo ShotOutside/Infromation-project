@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.rj.bd.student.entity.Student;
 import com.rj.bd.student.service.IStudentService;
+import com.rj.bd.teacher.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +43,7 @@ public class StudentController {
 	@RequestMapping("/add")
 	public Map<String, Object> add(String uid, String uname, String sex, String birth,String unumber,String password,String cname,
 	String school,String departname) {
+		Map<String, Object> map = new HashMap<String,Object>();
 		System.out.println("Add");
 		uid= UUID.randomUUID().toString();
 		String cid=userService.queryByNametoId(cname);
@@ -49,7 +51,9 @@ public class StudentController {
 		String departid=userService.queryByNametodId(departname);
 		userService.save(uid,uname,sex,birth,unumber,password,cid,school,departid);
 
-        return null;
+		map.put("msc", 200);
+		map.put("text", "添加成功");
+        return map;
 	}
 
 	/**
@@ -57,10 +61,13 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping("/update")
-	public String update(String uid,String uname,String unumber,String sex,String birth,String password) {
+	public Map<String, Object> update(String uid,String uname,String unumber,String sex,String birth,String password) {
+		Map<String, Object> map = new HashMap<String,Object>();
 		System.out.println("update");
 		userService.update(uid,uname,unumber,sex,birth,password);
-        return "";
+		map.put("msc", 200);
+		map.put("text", "修改成功");
+        return map;
 	}
 
 
@@ -69,11 +76,14 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping("/delete")
-	public String delete(String uid) {
-		System.out.println("delete");
+	public Map<String, Object> delete(String uid) {
+		Map<String, Object> map = new HashMap<String,Object>();
 
+		System.out.println("delete");
 		userService.DeleteUser(uid);
-        return "ok";
+		map.put("msc", 200);
+		map.put("text", "删除成功");
+        return map;
 	}
 
 	/**
@@ -87,9 +97,19 @@ public class StudentController {
 		return list;
 
 	}
-	
-	
-	
-	
-	
+
+
+	/**
+	 * 根据id查询单条
+	 */
+
+	@RequestMapping("/queryOne")
+	public List<Map<String, Object>> queryByOne(String uid){
+		System.out.println("student-->queryByOne");
+		List<Map<String, Object>> list = userService.queryOne(uid);
+		return list;
+
+	}
+
+
 }

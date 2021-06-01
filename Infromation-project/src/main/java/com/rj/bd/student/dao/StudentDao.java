@@ -65,4 +65,11 @@ public interface StudentDao extends BaseMapper<Student> {
 	public List<Map<String, Object>> queryByName(@Param("uname")String uname);
 
 
+
+
+	/**
+	 * @desc 根据id查询单条
+	 */
+	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid AND uid=#{uid}")
+	List<Map<String, Object>> queryById(String uid);
 }

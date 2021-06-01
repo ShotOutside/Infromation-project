@@ -21,4 +21,6 @@ public interface IStudentService {
     void update(String uid, String uname, String unumber, String sex, String birth, String password);
 
 	List<Map<String, Object>> queryByName(String uname);
+
+	List<Map<String, Object>> queryOne(String uid);
 }
