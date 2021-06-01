@@ -54,4 +54,9 @@ public StudentDao userDao;
 			userDao.update(uid,uname,unumber,birth,sex,password);
 	}
 
+	@Override
+	public List<Map<String, Object>> queryByName(String uname) {
+		return userDao.queryByName(uname);
+	}
+
 }

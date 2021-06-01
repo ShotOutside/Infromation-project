@@ -19,4 +19,6 @@ public interface IStudentService {
 	void save(String uid, String uname, String sex, Date birth, String unumber, String password, String cid, String school, String departid);
 
     void update(String uid, String uname, String unumber, String sex, Date birth, String password);
+
+	List<Map<String, Object>> queryByName(String uname);
 }

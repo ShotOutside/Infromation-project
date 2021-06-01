@@ -15,7 +15,7 @@ import org.apache.ibatis.annotations.*;
 public interface StudentDao extends BaseMapper<Student> {
 
 	//多表联查
-	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid ")
+	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid")
 	public List<Map<String, Object>> queryAll();
 	
 	@Update("update user set name=#{name} where id=#{id}")
@@ -56,6 +56,13 @@ public interface StudentDao extends BaseMapper<Student> {
 	 */
 	@Update("update student set uname=#{uname},unumber=#{unumber},sex=#{sex},birth=#{birth},password=#{password} where uid=#{uid}")
 	void update(@Param("uname")String uname,@Param("unumber")String unumber,@Param("sex")String sex,@Param("birth")Date birth,@Param("password")String password,@Param("uid")String uid);
+
+
+	/**
+	 * @desc  模糊查询
+	 */
+	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid AND uname like CONCAT('%',#{uname},'%')")
+	public List<Map<String, Object>> queryByName(@Param("uname")String uname);
 
 
 }

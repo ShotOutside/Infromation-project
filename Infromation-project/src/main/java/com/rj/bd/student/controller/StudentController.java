@@ -76,6 +76,18 @@ public class StudentController {
 		userService.DeleteUser(uid);
         return "ok";
 	}
+
+	/**
+	 * @desc  模糊查询
+	 */
+	@RequestMapping("/querybyname")
+	public List<Map<String, Object>> queryByName(String uname){
+		System.out.println("queryByName");
+		List<Map<String, Object>> list = userService.queryByName(uname);
+
+		return list;
+
+	}
 	
 	
 	
