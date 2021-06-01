@@ -54,11 +54,11 @@
     </dependency>
 
     <!-- Spring Boot Mybatis 依赖 -->
-    <dependency>
+<!--    <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
       <artifactId>mybatis-spring-boot-starter</artifactId>
       <version>${mybatis-spring-boot}</version>
-    </dependency>
+    </dependency>-->
 
     <!-- MySQL 连接驱动依赖 -->
     <dependency>
@@ -94,22 +94,17 @@
     </dependency>
 
 
-<!--    <dependency>
+    <dependency>
       <groupId>com.baomidou</groupId>
       <artifactId>mybatis-plus-boot-starter</artifactId>
       <version>3.3.2</version>
-    </dependency>-->
-    <!-- mybatis plus 代码生成器依赖 -->
-<!--    <dependency>-->
-<!--      <groupId>com.baomidou</groupId>-->
-<!--      <artifactId>mybatis-plus-generator</artifactId>-->
-<!--      <version>3.3.2</version>-->
-<!--    </dependency>-->
+    </dependency>
+
     <!-- 代码生成器模板 -->
-<!--    <dependency>
+    <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
-    </dependency>-->
+    </dependency>
 
   </dependencies>
 </project>

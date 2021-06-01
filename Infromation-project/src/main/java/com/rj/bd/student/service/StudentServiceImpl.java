@@ -19,7 +19,7 @@ public StudentDao userDao;
 	
 	
 	public List<Student> queryAll() {
-		return userDao.queryAll();
+		return userDao.selectList(null);
 	}
 
 	@Transactional
