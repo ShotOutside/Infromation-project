@@ -4,6 +4,8 @@ import com.rj.bd.classes.entity.Classes;
 import com.rj.bd.department.entity.Department;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * Student模块的实体类
  */
@@ -12,7 +14,7 @@ public class Student {
 	public String uid;
 	public String uname;
 	public String sex;
-	public String birth;
+	public Date birth;
 	public String unumber;
 	public String password;
 	public String school;
