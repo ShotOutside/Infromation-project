@@ -33,23 +33,27 @@ public class TeaServiceImpl implements ITeaService{
         return teaDao.queryName();
     }
 
-    @Override
-    public void updateOne(String tid) {
-        teaDao.updateTea(tid);
-    }
+
 
     @Override
     public Teacher queryOne(String tid) {
         return teaDao.queryByID(tid);
     }
 
-    @Override
-    public void addOne() {
-        teaDao.addTea();
-    }
+
 
     @Override
     public List<Teacher> queryName(String tname) {
         return teaDao.SelectName(tname);
+    }
+
+    @Override
+    public void updateById(Teacher teacher) {
+        teaDao.updateById(teacher);
+    }
+
+    @Override
+    public void save(Teacher teacher) {
+        teaDao.insert(teacher);
     }
 }

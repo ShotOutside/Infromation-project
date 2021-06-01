@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/teacher")
@@ -36,7 +34,7 @@ public class TeaController {
     }
 
     /**
-     * 查询所有老师名字
+     * 删除一条
      * @return
      */
     @CrossOrigin
@@ -67,10 +65,19 @@ public class TeaController {
      */
     @CrossOrigin
     @RequestMapping("/updateOne")
-    public Map<String, Object> update(String tid){
+    public Map<String, Object> update(String tid, String tname, String sex, Date birth,String tnumber,String password,String school){
+        Teacher teacher = new Teacher();
+        teacher.setTid(tid);
+        teacher.setTname(tname);
+        teacher.setSex(sex);
+        teacher.setBirth(birth);
+        teacher.setTnumber(tnumber);
+        teacher.setPassword(password);
+        teacher.setSchool(school);
+        teaService.updateById(teacher);
         Map<String, Object> map = new HashMap<String,Object>();
         System.out.println("teacher-->update");
-        teaService.updateOne(tid);
+
         map.put("msc", 200);
         map.put("text", "修改成功");
         return map;
@@ -82,14 +89,22 @@ public class TeaController {
      */
     @CrossOrigin
     @RequestMapping("/addOne")
-    public Map<String, Object> add(){
+    public Map<String, Object> add(String tid, String tname, String sex, Date birth,String tnumber,String password,String school){
         Map<String, Object> map = new HashMap<String,Object>();
         System.out.println("teacher-->addOne");
-        teaService.addOne();
+        Teacher teacher = new Teacher();
+        tid= UUID.randomUUID().toString();
+        teacher.setTid(tid);
+        teacher.setTname(tname);
+        teacher.setSex(sex);
+        teacher.setBirth(birth);
+        teacher.setTnumber(tnumber);
+        teacher.setPassword(password);
+        teacher.setSchool(school);
+        teaService.save(teacher);
         map.put("msc", 200);
         map.put("text", "添加成功");
         return map;
-
     }
 
     /**

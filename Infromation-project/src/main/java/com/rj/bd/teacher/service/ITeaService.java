@@ -16,11 +16,14 @@ public interface ITeaService {
 
     List<Teacher> queryTname();
 
-    void updateOne(String tid);
+
 
     Teacher queryOne(String tid);
 
-    void addOne();
 
     List<Teacher> queryName(String name);
+
+    void updateById(Teacher teacher);
+
+    void save(Teacher teacher);
 }
