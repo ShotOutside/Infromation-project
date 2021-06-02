@@ -4,6 +4,7 @@ package com.rj.bd.teacher.entity;
  */
 
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Data
 public class Teacher {
 
+    @TableId
     public String tid;
     public String tname;
     public String sex;
