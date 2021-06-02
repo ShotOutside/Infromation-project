@@ -14,9 +14,14 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface StudentDao extends BaseMapper<Student> {
 
-	//多表联查
+	//多表联查(分页)
 	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid limit #{param1},#{param2}")
 	public List<Map<String, Object>> queryAll(int page,int size);
+
+	//多表联查
+	@Select("  select * from student u,classes c,department d where u.cid=c.cid AND u.departid=d.departid")
+	public List<Map<String, Object>> findAll();
+
 	
 	@Update("update user set name=#{name} where id=#{id}")
 	public void UpdateUser(Student user);

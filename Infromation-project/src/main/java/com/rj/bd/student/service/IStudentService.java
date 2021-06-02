@@ -25,4 +25,6 @@ public interface IStudentService {
 	List<Map<String, Object>> queryOne(String uid);
 
 	Object getLosCount();
+
+    List<Map<String, Object>> findAll();
 }

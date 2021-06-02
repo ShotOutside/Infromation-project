@@ -69,5 +69,10 @@ public StudentDao userDao;
 		return userDao.selectCount(null);
 	}
 
+	@Override
+	public List<Map<String, Object>> findAll() {
+		return userDao.findAll();
+	}
+
 
 }

@@ -1,15 +1,22 @@
 package com.rj.bd.student.controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.*;
 
-import com.rj.bd.student.entity.Student;
+import com.rj.bd.root.utils.ExcelUtils;
 import com.rj.bd.student.service.IStudentService;
-import com.rj.bd.teacher.entity.Teacher;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * student模块的c层
@@ -131,6 +138,51 @@ public class StudentController {
 		map.put("num", userService.getLosCount());
 
 		return map;
+
+	}
+
+	/**
+	 * @desc   生成excel
+	 */
+	@RequestMapping("/excel")
+	public void excel(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("excel");
+		List<Map<String , Object>> list =userService.findAll();
+		System.out.println(list);
+
+		String filename = "学生信息表.xls";
+		ExcelUtils excelUtils = new ExcelUtils();
+		HSSFWorkbook workbook = new HSSFWorkbook();
+		String sheetname = "学生信息";
+		HSSFSheet sheet = workbook.createSheet(sheetname);
+		String[] tableTop = {"学生ID", "学生姓名", "性别", "出生日期", "电话号码","密码","所属班级","学校名称","所属系别"};
+		String[] columnName ={"uid", "uname", "sex", "birth", "unumber","password","cname","school","departname"};
+		HSSFRow row = sheet.createRow(0);
+		for (int i = 0; i < tableTop.length; i++) {
+			row.createCell(i).setCellValue(tableTop[i]);
+		}
+		System.out.println("1");
+		for (int i = 0; i < list.size(); i++) {
+			HSSFRow row02 = sheet.createRow(i + 1);
+			sheet.autoSizeColumn(i, true);
+			Map<String, Object> map = list.get(i);
+			System.out.println(map);
+			for (int k = 0; k < columnName.length; k++) {
+				System.out.println("2");
+				row02.createCell(k).setCellValue((String)map.get(columnName[k]));
+			}
+
+		}
+		System.out.println("3");
+		excelUtils.setColumnAutoAdapter(sheet, list.size());
+		response.setContentType("application/ms-excel;charset=UTF-8");
+		response.setHeader("Content-Disposition", "attachment;filename="
+				.concat(String.valueOf(URLEncoder.encode("学生信息表" + ".xls",
+						"UTF-8"))));
+		OutputStream outputStream = response.getOutputStream();
+		workbook.write(outputStream);
+		outputStream.close();
+
 
 	}
 
