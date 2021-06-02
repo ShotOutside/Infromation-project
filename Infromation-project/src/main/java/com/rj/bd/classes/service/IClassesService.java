@@ -1,5 +1,7 @@
 package com.rj.bd.classes.service;
 
+import java.util.Map;
+
 /**
  * @author ShiJie
  * @desc
@@ -7,4 +9,5 @@ package com.rj.bd.classes.service;
  */
 
 public interface IClassesService {
+    Map<String, Object> queryid(String cid);
 }
