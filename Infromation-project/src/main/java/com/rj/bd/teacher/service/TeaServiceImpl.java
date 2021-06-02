@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class TeaServiceImpl implements ITeaService{
@@ -55,5 +56,10 @@ public class TeaServiceImpl implements ITeaService{
     @Override
     public void save(Teacher teacher) {
         teaDao.insert(teacher);
+    }
+
+    @Override
+    public List<Map<String, Object>> findAll() {
+        return teaDao.findAll();
     }
 }

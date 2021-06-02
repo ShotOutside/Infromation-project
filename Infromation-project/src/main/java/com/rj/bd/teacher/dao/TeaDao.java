@@ -9,6 +9,7 @@ import com.rj.bd.teacher.entity.Teacher;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface TeaDao extends BaseMapper<Teacher> {
@@ -28,4 +29,7 @@ public interface TeaDao extends BaseMapper<Teacher> {
 
     @Select("SELECT * FROM teacher where tname like CONCAT('%',#{tname},'%')")
     List<Teacher> SelectName(String tname);
+
+    @Select("select * from teacher")
+    List<Map<String, Object>> findAll();
 }

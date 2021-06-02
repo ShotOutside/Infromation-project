@@ -161,7 +161,6 @@ public class StudentController {
 		for (int i = 0; i < tableTop.length; i++) {
 			row.createCell(i).setCellValue(tableTop[i]);
 		}
-		System.out.println("1");
 		for (int i = 0; i < list.size(); i++) {
 			HSSFRow row02 = sheet.createRow(i + 1);
 			sheet.autoSizeColumn(i, true);
@@ -173,7 +172,6 @@ public class StudentController {
 			}
 
 		}
-		System.out.println("3");
 		excelUtils.setColumnAutoAdapter(sheet, list.size());
 		response.setContentType("application/ms-excel;charset=UTF-8");
 		response.setHeader("Content-Disposition", "attachment;filename="
