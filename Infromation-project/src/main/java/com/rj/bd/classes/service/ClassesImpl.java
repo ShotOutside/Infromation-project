@@ -12,7 +12,7 @@ import java.util.Map;
  * @time 2021-05-31-16:50
  */
 
-//@Service
+@Service
 public class ClassesImpl implements IClassesService{
 
     @Autowired
