@@ -5,6 +5,7 @@ import com.rj.bd.classes.entity.Classes;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,4 +19,7 @@ public interface ClassesDao extends BaseMapper<Classes> {
 
     @Select("select * from classes where cid=#{cid}")
     public Map<String, Object> queryid(String cid);
+
+    @Select("select * from classes")
+    List<Classes> queryAll();
 }

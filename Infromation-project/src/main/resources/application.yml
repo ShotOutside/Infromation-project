@@ -12,6 +12,9 @@ spring:
     timeout: 1000ms # 连接超时时间
     maxTotal: 100
     maxIdle: 90
+  data:
+    solr:
+      host: http://127.0.0.1:8080/solr/
 
 
 
@@ -28,3 +31,6 @@ mail:
   properties.mail.smtp.auth: true
   properties.mail.smtp.starttls.enable: true
   properties.mail.smtp.starttls.required: true
+
+
+
