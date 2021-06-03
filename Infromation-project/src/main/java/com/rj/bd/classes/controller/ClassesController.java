@@ -21,7 +21,7 @@ public class ClassesController {
     @Autowired
     public IClassesService classesService;
 
-    @RequestMapping(method = RequestMethod.POST,value = "/queryId")
+    @RequestMapping("/queryId")
     @ApiImplicitParam(name = "cid",value = "教室id",defaultValue = "c01")
     public Map<String, Object> queryid(@PathVariable String cid){
 
