@@ -20,6 +20,6 @@ public class ClassesImpl implements IClassesService{
 
     @Override
     public Map<String, Object> queryid(String cid) {
-        return null;
+        return classesDao.queryid(cid);
     }
 }
