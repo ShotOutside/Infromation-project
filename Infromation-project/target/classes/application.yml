@@ -15,6 +15,8 @@ spring:
 
 
 
+
+
 mybatis-plus:
   configuration:
     # 关闭驼峰命名规则
@@ -28,3 +30,11 @@ mail:
   properties.mail.smtp.auth: true
   properties.mail.smtp.starttls.enable: true
   properties.mail.smtp.starttls.required: true
+
+  application:
+    name: solr
+  data:
+    solr:
+      host: http://127.0.0.1:8080/solr
+
+

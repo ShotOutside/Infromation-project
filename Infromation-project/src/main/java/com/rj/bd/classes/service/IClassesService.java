@@ -10,4 +10,5 @@ import java.util.Map;
 
 public interface IClassesService {
     Map<String, Object> queryid(String cid);
+
 }

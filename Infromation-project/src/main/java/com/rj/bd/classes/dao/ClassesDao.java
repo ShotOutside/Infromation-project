@@ -21,5 +21,5 @@ public interface ClassesDao extends BaseMapper<Classes> {
     public Map<String, Object> queryid(String cid);
 
     @Select("select * from classes")
-    List<Classes> queryAll();
+   public List<Classes> queryAll();
 }
