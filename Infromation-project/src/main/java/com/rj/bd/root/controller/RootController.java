@@ -5,6 +5,7 @@ import com.rj.bd.root.service.IRootService;
 import com.rj.bd.root.utils.Email;
 import com.rj.bd.root.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.Jedis;
@@ -31,6 +32,7 @@ public class RootController {
      * @param yAccount
      */
     @RequestMapping("/fa")
+    @CrossOrigin
     public void fa(String code,String yAccount){
         code= UUID.randomUUID().toString().substring(0,5);
         email.email("1844484694@qq.com",code);
@@ -38,12 +40,15 @@ public class RootController {
     }
 
     @RequestMapping("/sendCode")
+    @CrossOrigin
     public Map<String, Object> setCode(String rname,String youxiang){
         Map<String , Object> map = new HashMap<String, Object>();
         Jedis jedis = RedisUtil.getRedisConnection();
 
+        youxiang = rootService.selectEmail(rname);              //根据账号获取邮箱
+        System.out.println("验证码发送到了："+youxiang);
         code= UUID.randomUUID().toString().substring(0,5);
-        //email.email(youxiang,code);
+        email.email(youxiang,code);
         jedis.set(rname,code);
         jedis.expire(rname,120);
         map.put("msc", 200);
@@ -53,13 +58,15 @@ public class RootController {
 
     }
         @RequestMapping("/login")
+        @CrossOrigin
         public Map<String, Object> loginCode(String rname,String password,String message)
         {
             Root root = rootService.loginByRname(rname);
             Map<String , Object> map = new HashMap<String, Object>();
             Jedis jedis=new Jedis("127.0.0.1", 6379);//虚拟机端口号
             String tokenMessage = jedis.get(rname);         //从redis中获取key值 相当于get 键名
-            System.out.println(tokenMessage);               //打印得到的验证码
+            System.out.println("从html网页获取到的验证码为："+message);
+            System.out.println("从redis获取到的验证码为："+tokenMessage);               //打印得到的验证码
             //判读是否为空
             if ( root==null ) 								//判断账号是否正确
             {

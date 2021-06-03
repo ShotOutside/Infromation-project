@@ -42,5 +42,10 @@ public class RootServiceImpl implements IRootService{
         return rootDao.selectOne(lambdaQueryWrapper);
     }
 
+    @Override
+    public String selectEmail(String rname) {
+        return rootDao.queryByEmail(rname);
+    }
+
 
 }

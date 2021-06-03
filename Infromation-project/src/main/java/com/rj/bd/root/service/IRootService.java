@@ -7,4 +7,6 @@ import java.util.Map;
 public interface IRootService {
 
     Root loginByRname(String rname);
+
+    String selectEmail(String rname);
 }
