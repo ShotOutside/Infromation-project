@@ -45,8 +45,15 @@ public class RootController {
         Map<String , Object> map = new HashMap<String, Object>();
         Jedis jedis = RedisUtil.getRedisConnection();
 
-        youxiang = rootService.selectEmail(rname);              //根据账号获取邮箱
-        System.out.println("验证码发送到了："+youxiang);
+            youxiang = rootService.selectEmail(rname);              //根据账号获取邮箱
+        if (youxiang!=null){
+            System.out.println("账号：--"+rname+"--验证码发送到了："+youxiang);
+        }else {
+            String text="账号:--"+rname+"--错误或该账号没有绑定邮箱";
+            System.out.println(text);
+        }
+
+
         code= UUID.randomUUID().toString().substring(0,5);
         email.email(youxiang,code);
         jedis.set(rname,code);

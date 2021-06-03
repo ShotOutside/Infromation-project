@@ -73,12 +73,13 @@ public class StudentController {
 									  String school,String departname) {
 		Map<String, Object> map = new HashMap<String,Object>();
 		System.out.println("update");
-
+		System.out.println("departname"+departname);
+		System.out.println("cname"+cname);
 		String cid=userService.queryByNametoId(cname);
 		System.out.println(cid);
 		String departid=userService.queryByNametodId(departname);
 
-		userService.update(uid,uname,unumber,sex,birth,password,cname,school,departname);
+		userService.update(uid,uname,unumber,sex,birth,password,cid,school,departid);
 		map.put("msc", 200);
 		map.put("text", "修改成功");
         return map;
@@ -101,11 +102,13 @@ public class StudentController {
 	}
 
 	/**
-	 * @desc  模糊查询
+	 * @desc  双条件模糊查询
 	 */
 	@RequestMapping("/querybyname")
 	public List<Map<String, Object>> queryByName(String uname,String unumber){
-		System.out.println("queryByName");
+		System.out.println("---->queryByName");
+		System.out.println("查询的名字uname："+uname);
+		System.out.println("查询的学号unumber："+unumber);
 		List<Map<String, Object>> list = userService.queryByName(uname,unumber);
 
 		return list;
