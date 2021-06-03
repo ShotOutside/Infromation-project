@@ -39,7 +39,7 @@ public class RedisUtil {
             jedisPoolConfig.setMaxIdle(Integer.parseInt(pro.getProperty("maxIdle")));
 
             // 使用jedis连接池配置对象创建jedis连接池配置对象
-            jedisPool = new JedisPool(jedisPoolConfig,"192.168.56.132", 6379);
+            jedisPool = new JedisPool(jedisPoolConfig,"127.0.0.1", 6379);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("获取redis连接失败，请查看redis是否开启");
