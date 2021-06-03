@@ -1,7 +1,10 @@
 package com.rj.bd.root.service;
 
+import com.rj.bd.root.entity.Root;
+
 import java.util.Map;
 
 public interface IRootService {
-    Map<String, Object> login(String code, String rname);
+
+    Root loginByRname(String rname);
 }
