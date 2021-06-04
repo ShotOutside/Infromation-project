@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-    @RequestMapping("root")
+@RequestMapping("root")
 @RestController
 
 public class RootController {
@@ -39,6 +39,12 @@ public class RootController {
 
     }
 
+        /**
+         * 发送验证码到redis和邮箱
+         * @param rname
+         * @param youxiang
+         * @return
+         */
     @RequestMapping("/sendCode")
     @CrossOrigin
     public Map<String, Object> setCode(String rname,String youxiang){
@@ -64,6 +70,15 @@ public class RootController {
 
 
     }
+
+
+        /**
+         * 验证码登录
+         * @param rname
+         * @param password
+         * @param message
+         * @return
+         */
         @RequestMapping("/login")
         @CrossOrigin
         public Map<String, Object> loginCode(String rname,String password,String message)
@@ -98,7 +113,7 @@ public class RootController {
 
                     } else{										//判断验证码是否过期
                         map.put("msc", -1);
-                        map.put("text", "超过60秒,验证码失效了,登陆失败");
+                        map.put("text", "超过120秒,验证码失效了,登陆失败");
                     }
                 }
                 else 											//判断密码是否正确
